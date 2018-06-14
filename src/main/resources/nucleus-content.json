@@ -1,0 +1,28 @@
+{
+"comment":"This is bundled JSON file. Idea is that we should externalize this also as part of build. Currently this is going to hold the dev env information",
+"cassandra-v1":{
+"comment":"This is to store 3.1 and 4.0 version events.",
+"hosts":"localhost",
+"keyspace":"event_logger_insights_v1",
+"cluster":"Test Cluster"
+},
+"cassandra-v2":{
+"comment":"This is to store 0.1 and 3.0 version events.(Interim Cassandra Raw Events Store)",
+"hosts":"localhost",
+"keyspace":"event_logger_insights",
+"cluster":"Test Cluster"
+},
+"verticles.deploy.list":[
+"service:org.gooru.nucleus.insights.handlers.bootstrap.MessageConsumerVerticle"
+],
+"service:org.gooru.nucleus.insights.handlers.bootstrap.MessageConsumerVerticle":{
+"thead.pool.size":10,
+"defaultKafkaConsumerSettings":{
+"bootstrap.servers":"127.0.0.1:9092",
+"consumer.topics":"test-QA,EVENTLOGS-QA,NILE-CONTENT-LOG",
+"group.id":"test1",
+"session.timeout.ms":"6000",
+"message.bus.send.timeout.seconds":10
+}
+}
+}
